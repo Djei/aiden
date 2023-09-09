@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Clock Panda | clockpanda</title>
+<meta name="generator" content="Jekyll v3.9.3">
+<meta property="og:title" content="Clock Panda">
+<meta property="og:locale" content="en_US">
+<link rel="canonical" href="https://djei.github.io/clockpanda/">
+<meta property="og:url" content="https://djei.github.io/clockpanda/">
+<meta property="og:site_name" content="clockpanda">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Clock Panda">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","headline":"Clock Panda","name":"clockpanda","url":"https://djei.github.io/clockpanda/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <style class="anchorjs"></style><link rel="stylesheet" href="Clock%20Panda%20clockpanda_files/style.css">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/clockpanda/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://djei.github.io/clockpanda/">clockpanda</a></h1>
+      
+
+      <h1 id="clock-panda">Clock Panda</h1>
+<p><a href="https://github.com/Djei/clockpanda">Clock Panda</a> is an open source implementation of a schedule management and optimization system.</p>
+
+<p>The goal is to allow users to connect their work calendar and let 
+Clock Panda automatically optimize their schedule by creating blocks for
+ personal tasks and focus time.</p>
+
+<hr>
+<h1 id="planned-features-and-supported-calendar-platforms">Planned features and supported calendar platforms</h1>
+<h2 id="features">Features<a class="anchorjs-link " href="#features" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">[beta]</code> Local personal usage</li>
+  <li><code class="language-plaintext highlighter-rouge">[planned]</code> Self-hosting</li>
+  <li><code class="language-plaintext highlighter-rouge">[planned]</code> Data encryption at rest</li>
+  <li><code class="language-plaintext highlighter-rouge">[beta]</code> Automatically schedule and protect focus times when you do deep work without any interruptions</li>
+  <li><code class="language-plaintext highlighter-rouge">[beta]</code> Task list: define personal todo tasks and let Clock Panda schedule them for you</li>
+  <li><code class="language-plaintext highlighter-rouge">[planned]</code> Analytics</li>
+  <li><code class="language-plaintext highlighter-rouge">[planned]</code> Team schedule optimization</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">[planned]</code>: This is on the roadmap but not yet started. Prioritization may change</p>
+
+<p><code class="language-plaintext highlighter-rouge">[in progress]</code>: This is actively being worked on</p>
+
+<p><code class="language-plaintext highlighter-rouge">[beta]</code>: This is available but expect you should expect bugs and potential changes</p>
+
+<p><code class="language-plaintext highlighter-rouge">[stable]</code>: This is available and can be considered stable</p>
+
+<h2 id="supported-calendar-platforms">Supported calendar platforms<a class="anchorjs-link " href="#supported-calendar-platforms" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+<ul>
+  <li>Google Calendar</li>
+</ul>
+
+<hr>
+<h1 id="how-to-use-clock-panda">How to use Clock Panda</h1>
+<h2 id="local-personal-usage">Local personal usage<a class="anchorjs-link " href="#local-personal-usage" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+<p>Clock Panda was designed to be hosted on a server. However, you can 
+also run it locally for personal usage with some limitations:</p>
+<ul>
+  <li>Clock Panda is configured to regularly optimize your schedule but will not be able to do so when your computer is off or asleep</li>
+  <li>While locally running Clock Panda is regularly tested, we do not 
+explicitly design Clock Panda to work with minimal consumer grade 
+hardware requirements</li>
+  <li>Please check the privacy / security section for details on what 
+data is stored on the machine running Clock Panda. You are responsible 
+for securing your machine and network.</li>
+  <li>Other potential limitations may be added as we continue to develop Clock Panda</li>
+</ul>
+
+<p>First follow the instructions in the “How to set up your Google calendar API credentials” section</p>
+
+<p>Open a terminal and run the following commands:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git@github.com:Djei/clockpanda.git
+
+./gradlew bootRun --args='--spring.profiles.active=local'
+</code></pre></div></div>
+<h2 id="self-host">Self-host<a class="anchorjs-link " href="#self-host" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+<p>This feature is not yet available. Only local personal usage is supported at this moment.</p>
+
+<h2 id="privacy--security">Privacy / Security<a class="anchorjs-link " href="#privacy--security" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+<p>Clock Panda currently does not store any of your connected calendar data on the server. 
+All the data pulled from your calendar is processed in memory and discarded after the schedule optimization is complete.</p>
+
+<p>Clock Panda does store information about your user account and your 
+schedule optimization preferences on the server.
+The data is stored in a local sqlite database and is not currently 
+encrypted at rest. 
+When running locally or self-hosting, you are responsible for ensuring 
+the security of your machine (encrypted disk, appropriate OS user 
+permissions) and network.</p>
+
+<p>Data stored:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Usage by Clock Panda</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Basic profile information e.g. name, email</td>
+      <td>Used to identify you and display your name in the UI</td>
+    </tr>
+    <tr>
+      <td>Google Calendar API refresh token</td>
+      <td>Used by the recurring Clock Panda optimizer to pull the latest state of your calendar to optimize your schedule</td>
+    </tr>
+    <tr>
+      <td>Schedule optimization preferences</td>
+      <td>Used by the recurring Clock Panda optimizer to know how to optimize your schedule</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Please note that this stance may change in the future, but we will 
+always strive to minimize the amount of data stored on the running 
+server.
+THis is further mitigated by the fact that Clock Panda will be designed 
+to always be self-hostable, so you can control where your data is 
+stored.</p>
+
+<hr>
+<h1 id="contribution-guidelines">Contribution guidelines</h1>
+<h2 id="code-structure">Code structure<a class="anchorjs-link " href="#code-structure" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+<p>This project is split into multiple gradle subprojects:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">app</code> is the main Spring application and view controllers</li>
+  <li><code class="language-plaintext highlighter-rouge">service-xxx</code> are modules containing business logic executed via endpoints or by background processes e.g. cron jobs, daemon process</li>
+  <li><code class="language-plaintext highlighter-rouge">lib-xxx</code> are modules containing simply library code e.g. database access, data models
+    <h2 id="commit-messages">Commit messages<a class="anchorjs-link " href="#commit-messages" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+    <p>Commit messages must be prefixed with one of the following tags:</p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">[feature]</code>: for commits implementing new features</li>
+  <li><code class="language-plaintext highlighter-rouge">[fix]</code>: for commits fixing bugs</li>
+  <li><code class="language-plaintext highlighter-rouge">[opex]</code>: for commits improving operational excellence e.g. security, logging, performance, monitoring</li>
+  <li><code class="language-plaintext highlighter-rouge">[devex]</code>: for commits improving developer experience e.g. build, test, CI/CD</li>
+  <li><code class="language-plaintext highlighter-rouge">[codeclean]</code>: for commits cleaning up code e.g. linting, variable renames</li>
+  <li><code class="language-plaintext highlighter-rouge">[doc]</code>: for commits updating documentation</li>
+</ul>
+
+<p>Avoid using multiple tags for the same commit. The tag list is roughly ordered by priority if you need to use multiple tags.</p>
+<h2 id="testing-before-pushing">Testing before pushing<a class="anchorjs-link " href="#testing-before-pushing" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+<h3 id="test-suite">Test suite<a class="anchorjs-link " href="#test-suite" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<p>You can build and run the full test suite using <code class="language-plaintext highlighter-rouge">make build</code></p>
+
+<p>You can build and run a particular subproject using <code class="language-plaintext highlighter-rouge">./gradlew :&lt;replace with subproject name&gt;:check</code> e.g. <code class="language-plaintext highlighter-rouge">./gradlew :service-authnz:check</code></p>
+<h3 id="local-manual-test">Local manual test<a class="anchorjs-link " href="#local-manual-test" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<p>First follow the instructions in the “How to set up your Google calendar API credentials” section</p>
+
+<p>You can start a local Clock Panda instance using <code class="language-plaintext highlighter-rouge">make bootRun</code> and open <code class="language-plaintext highlighter-rouge">http://localhost:8001/</code> in your browser</p>
+
+<p>If you need to connect a debugger to the Clock Panda instance, you can start it using <code class="language-plaintext highlighter-rouge">make bootRunDebug</code> and connect to the debug port</p>
+
+<p>Clock Panda is configured to run the schedule optimizer only every 30 minutes which is not ideal for testing the optimizer. 
+You can use the <code class="language-plaintext highlighter-rouge">OptimizationCronJobPlayground</code> test class to more rapidly iterate and get feedback (plus you can use your favorite IDE debugger).
+Alternatively, simply restarting the Clock Panda instance will also trigger an optimizer run.</p>
+
+<hr>
+<h1 id="how-to-set-up-your-google-calendar-api-credentials">How to set up your Google calendar API credentials</h1>
+<p>When running locally or in a self-hosted environment, you will first 
+need to setup your own Google Calendar API credentials and add them to 
+your local environment:</p>
+<ol>
+  <li>Go to https://console.cloud.google.com/apis/credentials</li>
+  <li>Create a project if needed</li>
+  <li>Enable the Google Calendar API for your project</li>
+  <li>Setup an OAuth consent screen and add your email as a test user</li>
+  <li>Ask for the following 2 scopes
+    <ul>
+      <li>auth/calendar.readonly</li>
+      <li>auth/calendar.events.owned</li>
+    </ul>
+  </li>
+  <li>In the Credentials tab, create an OAuth client ID</li>
+  <li>Add <code class="language-plaintext highlighter-rouge">http://localhost:8001/login/oauth2/code/google</code> as an authorized redirect URI</li>
+  <li>Copy the client id and client secret in an <code class="language-plaintext highlighter-rouge">.env</code> file in <code class="language-plaintext highlighter-rouge">app/src/main/resources</code> (Use <code class="language-plaintext highlighter-rouge">.env.example</code> as a template)</li>
+</ol>
+
+
+      
+      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+        This site is open source. <a href="https://github.com/Djei/clockpanda/edit/main/docs/README.md">Improve this page</a>.
+      </div>
+      
+    </div>
+    <script src="Clock%20Panda%20clockpanda_files/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  
+
+</body></html>

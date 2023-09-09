@@ -16,7 +16,7 @@ import openai
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 chroma_client = chromadb.PersistentClient(path="./storage/vector_storage/chromadb/")
-chroma_collection = chroma_client.get_or_create_collection("google_calendar_api")
+chroma_collection = chroma_client.get_or_create_collection("clockpanda")
 logging.info("Instantiated chroma client")
 
 vector_store = ChromaVectorStore(chroma_collection=chroma_collection)
@@ -27,12 +27,12 @@ service_context = ServiceContext.from_defaults(
 )
 logging.info("Created service context")
 
-documents = SimpleDirectoryReader("./data/clean/google_calendar_api/").load_data()
+documents = SimpleDirectoryReader("./data/clean/clockpanda/").load_data()
 logging.info("Loaded documents")
 
 index = GPTVectorStoreIndex.from_documents(documents=documents, storage_context=storage_context, service_context=service_context, show_progress=True)
 logging.info("Created index")
 
-index.set_index_id("gptvector_google_calendar_api")
-index.storage_context.persist('./storage/index_storage/google_calendar_api/')
+index.set_index_id("gptvector_clockpanda")
+index.storage_context.persist('./storage/index_storage/clockpanda/')
 logging.info("Saved index")

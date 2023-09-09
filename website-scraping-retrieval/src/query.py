@@ -17,11 +17,11 @@ import openai
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 chroma_client = chromadb.PersistentClient(path="./storage/vector_storage/chromadb/")
-chroma_collection = chroma_client.get_or_create_collection("google_calendar_api")
+chroma_collection = chroma_client.get_or_create_collection("clockpanda")
 logging.info("Instantiated chroma client")
 
 vector_store = ChromaVectorStore(chroma_collection=chroma_collection)
-storage_context = StorageContext.from_defaults(vector_store=vector_store, index_store=SimpleIndexStore.from_persist_dir(persist_dir="./storage/index_storage/google_calendar_api/"))
+storage_context = StorageContext.from_defaults(vector_store=vector_store, index_store=SimpleIndexStore.from_persist_dir(persist_dir="./storage/index_storage/clockpanda/"))
 logging.info("Created storage context")
 service_context = ServiceContext.from_defaults(
     embed_model=LangchainEmbedding(HuggingFaceEmbeddings())
@@ -32,7 +32,7 @@ index = load_index_from_storage(service_context=service_context, storage_context
 logging.info("Created index")
 
 query_engine = index.as_query_engine()
-question = "How do you create an event with the google calendar api? Please provide an sample api call."
+question = "How can I use the ClockPanda open source project to block focus time on my calendar?"
 answer = query_engine.query(question)
 logging.info(f"question: {question}")
 logging.info(f"answer: {answer}")
